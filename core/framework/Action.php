@@ -33,6 +33,10 @@
             if (Context::isCLI())
                 return self::AUTHENTICATION_METHOD_CLI;
 
+            if ($action == 'relateIssues') {
+                return self::AUTHENTICATION_METHOD_CORE;
+            }
+
             if (in_array(Context::getRequest()->getRequestedFormat(), ['json', 'rss', 'xml'])) {
                 return self::AUTHENTICATION_METHOD_APPLICATION_PASSWORD;
             }
